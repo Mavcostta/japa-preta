@@ -615,6 +615,13 @@ function animateCounters() {
 
 function animateCounter(element) {
   const target = parseInt(element.getAttribute("data-target"));
+  
+  // Validação: se target não for um número válido, usar o textContent
+  if (isNaN(target) || target === null) {
+    console.error("Valor inválido no data-target:", element);
+    return;
+  }
+  
   const duration = 2000; // 2 segundos
   const increment = target / (duration / 16); // 60fps
   let current = 0;
