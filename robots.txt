@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://japapretaacademy.com.br/sitemap.xml
+
+# Diretórios bloqueados
+Disallow: /admin/
+Disallow: /private/
