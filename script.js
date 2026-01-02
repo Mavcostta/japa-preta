@@ -536,4 +536,115 @@ faqItems.forEach((item) => {
 // ====================================
 window.addEventListener("load", () => {
   console.log("✨ Site carregado com sucesso!");
+
+  // Gerar poster automático para vídeos
+  generateVideoPoster();
+
+  // Animar contadores de estatísticas
+  animateCounters();
 });
+
+// ====================================
+// GERAR POSTER DOS VÍDEOS AUTOMATICAMENTE
+// ====================================
+function generateVideoPoster() {
+  const videos = document.querySelectorAll("video[poster]");
+
+  videos.forEach((video) => {
+    // Criar canvas para capturar frame
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+
+    // Quando o metadata do vídeo carregar
+    video.addEventListener("loadedmetadata", function () {
+      // Definir dimensões do canvas
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      // Ir para o primeiro frame (0.5 segundos)
+      video.currentTime = 0.5;
+    });
+
+    // Quando chegar no tempo desejado
+    video.addEventListener(
+      "seeked",
+      function () {
+        // Capturar o frame atual
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        // Converter para data URL
+        const posterUrl = canvas.toDataURL("image/jpeg", 0.85);
+
+        // Definir como poster
+        video.setAttribute("poster", posterUrl);
+
+        // Resetar vídeo
+        video.currentTime = 0;
+      },
+      { once: true }
+    );
+
+    // Carregar metadata do vídeo
+    video.load();
+  });
+}
+
+// ====================================
+// ANIMAÇÃO DE CONTADORES
+// ====================================
+function animateCounters() {
+  const counters = document.querySelectorAll(".stat-number[data-target]");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (
+          entry.isIntersecting &&
+          !entry.target.classList.contains("counted")
+        ) {
+          entry.target.classList.add("counted");
+          animateCounter(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach((counter) => observer.observe(counter));
+}
+
+function animateCounter(element) {
+  const target = parseInt(element.getAttribute("data-target"));
+  const duration = 2000; // 2 segundos
+  const increment = target / (duration / 16); // 60fps
+  let current = 0;
+
+  const updateCounter = () => {
+    current += increment;
+
+    if (current < target) {
+      // Formatar número baseado no valor
+      if (target >= 1000) {
+        const formatted = Math.floor(current).toLocaleString("pt-BR");
+        element.textContent = formatted + "+";
+      } else if (target === 100) {
+        element.textContent = Math.floor(current) + "%";
+      } else {
+        element.textContent = Math.floor(current);
+      }
+
+      requestAnimationFrame(updateCounter);
+    } else {
+      // Valor final formatado
+      if (target >= 1000) {
+        element.textContent = target.toLocaleString("pt-BR") + "+";
+      } else if (target === 100) {
+        element.textContent = "100%";
+      } else {
+        element.textContent = target;
+      }
+    }
+  };
+
+  updateCounter();
+}
