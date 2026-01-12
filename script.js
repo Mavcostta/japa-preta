@@ -1,26 +1,105 @@
 // ====================================
 // MENU MOBILE
 // ====================================
-const navToggle = document.getElementById("navToggle");
+const mobileMenuBtn = document.getElementById("mobileMenuBtn");
 const navMenu = document.getElementById("navMenu");
 const navLinks = document.querySelectorAll(".nav-link");
 
-// Toggle menu mobile
-navToggle.addEventListener("click", () => {
-  navMenu.classList.toggle("active");
-  const icon = navToggle.querySelector("i");
-  icon.classList.toggle("fa-bars");
-  icon.classList.toggle("fa-times");
-});
+// Toggle menu
+if (mobileMenuBtn) {
+  mobileMenuBtn.addEventListener("click", () => {
+    mobileMenuBtn.classList.toggle("active");
+    navMenu.classList.toggle("active");
+    document.body.style.overflow = navMenu.classList.contains("active")
+      ? "hidden"
+      : "";
+  });
+}
 
 // Fechar menu ao clicar em um link
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
+    mobileMenuBtn.classList.remove("active");
     navMenu.classList.remove("active");
-    const icon = navToggle.querySelector("i");
-    icon.classList.remove("fa-times");
-    icon.classList.add("fa-bars");
+    document.body.style.overflow = "";
   });
+});
+
+// Fechar menu ao clicar fora
+document.addEventListener("click", (e) => {
+  if (!navMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+    mobileMenuBtn.classList.remove("active");
+    navMenu.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+});
+
+// ====================================
+// CARROSSEL DE DESTAQUES - MÚLTIPLOS
+// ====================================
+const carousels = document.querySelectorAll(".hero-carousel");
+
+carousels.forEach((carouselElement) => {
+  const heroCarousel = carouselElement.querySelector(".hero-carousel-track");
+  const heroSlides = carouselElement.querySelectorAll(".hero-carousel-item");
+  const heroPrev = carouselElement.querySelector(".hero-prev");
+  const heroNext = carouselElement.querySelector(".hero-next");
+  const heroIndicators = carouselElement.querySelectorAll(".hero-indicator");
+
+  if (heroCarousel && heroSlides.length > 0) {
+    let currentIndex = 0;
+    const totalItems = heroSlides.length;
+
+    function showSlide(index) {
+      heroCarousel.style.transform = `translateX(-${index * 100}%)`;
+
+      heroIndicators.forEach((indicator, i) => {
+        indicator.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalItems;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+      showSlide(currentIndex);
+    }
+
+    if (heroNext) heroNext.addEventListener("click", nextSlide);
+    if (heroPrev) heroPrev.addEventListener("click", prevSlide);
+
+    heroIndicators.forEach((indicator, index) => {
+      indicator.addEventListener("click", () => {
+        currentIndex = index;
+        showSlide(currentIndex);
+      });
+    });
+
+    // Auto-play
+    let autoplay = setInterval(nextSlide, 5000);
+
+    carouselElement.addEventListener("mouseenter", () =>
+      clearInterval(autoplay)
+    );
+    carouselElement.addEventListener("mouseleave", () => {
+      autoplay = setInterval(nextSlide, 5000);
+    });
+
+    // Touch swipe
+    let touchStart = 0;
+    heroCarousel.addEventListener("touchstart", (e) => {
+      touchStart = e.touches[0].clientX;
+    });
+
+    heroCarousel.addEventListener("touchend", (e) => {
+      const touchEnd = e.changedTouches[0].clientX;
+      if (touchStart - touchEnd > 50) nextSlide();
+      else if (touchEnd - touchStart > 50) prevSlide();
+    });
+  }
 });
 
 // ====================================
@@ -83,64 +162,10 @@ scrollTopBtn.addEventListener("click", () => {
 });
 
 // ====================================
-// CARROSSEL DE GALERIA
+// CARROSSEL DE GALERIA - REMOVIDO
 // ====================================
-// Galeria - Lightbox Modal para imagens e vídeos
-document.addEventListener("DOMContentLoaded", () => {
-  const trabalhoItems = document.querySelectorAll(".trabalho-item");
-
-  trabalhoItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      const img = item.querySelector("img");
-      const video = item.querySelector("video");
-
-      if (img) {
-        openLightbox(img.src, "image");
-      } else if (video) {
-        openLightbox(video.src, "video");
-      }
-    });
-  });
-
-  function openLightbox(src, type) {
-    const lightbox = document.createElement("div");
-    lightbox.className = "lightbox-modal";
-    lightbox.innerHTML = `
-      <div class="lightbox-content">
-        <button class="lightbox-close">&times;</button>
-        ${
-          type === "image"
-            ? `<img src="${src}" alt="Trabalho Japa Preta">`
-            : `<video src="${src}" controls autoplay muted></video>`
-        }
-      </div>
-    `;
-
-    document.body.appendChild(lightbox);
-    document.body.style.overflow = "hidden";
-
-    setTimeout(() => lightbox.classList.add("active"), 10);
-
-    const closeBtn = lightbox.querySelector(".lightbox-close");
-    closeBtn.addEventListener("click", closeLightbox);
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-
-    function closeLightbox() {
-      lightbox.classList.remove("active");
-      setTimeout(() => {
-        document.body.removeChild(lightbox);
-        document.body.style.overflow = "";
-      }, 300);
-    }
-  }
-});
-
-// ====================================
-// FILTRO GALERIA (CÓDIGO ANTIGO - MANTIDO PARA COMPATIBILIDADE)
-// ====================================
-/* Removido - agora está integrado no carrossel */
+// Galeria foi simplificada - grid de trabalhos removido
+// Mantido apenas o carrossel de destaques
 
 // ====================================
 // MODAL GALERIA (com suporte a vídeos)
@@ -225,53 +250,6 @@ function closeModal() {
     video.pause();
   }
 }
-
-// ====================================
-// FORMULÁRIO DE CONTATO
-// ====================================
-const contactForm = document.getElementById("contactForm");
-
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  // Pegar valores do formulário
-  const nome = document.getElementById("nome").value;
-  const telefone = document.getElementById("telefone").value;
-  const servico = document.getElementById("servico").value;
-  const mensagem = document.getElementById("mensagem").value;
-
-  // Mapear serviços
-  const servicosMap = {
-    design: "Design de Sobrancelhas",
-    micro: "Micropigmentação",
-    henna: "Henna",
-    cabelo: "Cabeleireira",
-    curso: "Cursos",
-    outro: "Outro",
-  };
-
-  const servicoNome = servicosMap[servico] || servico;
-
-  // Montar mensagem para WhatsApp
-  const whatsappMsg = `Olá! Vim através do site.
-
-*Nome:* ${nome}
-*Telefone:* ${telefone}
-*Serviço Desejado:* ${servicoNome}
-*Mensagem:* ${mensagem}`;
-
-  // Encode para URL
-  const encodedMsg = encodeURIComponent(whatsappMsg);
-
-  // Número do WhatsApp (atualizar com o número correto)
-  const whatsappNumber = "5511986625696";
-
-  // Abrir WhatsApp
-  window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}`, "_blank");
-
-  // Limpar formulário
-  contactForm.reset();
-});
 
 // ====================================
 // ANIMAÇÕES AO SCROLL (AOS)
@@ -502,13 +480,7 @@ if ("IntersectionObserver" in window) {
 }
 
 // ====================================
-// TRATAMENTO DE ERROS GLOBAL
-// ====================================
-window.addEventListener("error", (e) => {
-  console.error("Erro detectado:", e.error);
-});
 
-// ====================================
 // FAQ ACCORDION
 // ====================================
 const faqItems = document.querySelectorAll(".faq-item");
@@ -537,57 +509,9 @@ faqItems.forEach((item) => {
 window.addEventListener("load", () => {
   console.log("✨ Site carregado com sucesso!");
 
-  // Gerar poster automático para vídeos
-  generateVideoPoster();
-
   // Animar contadores de estatísticas
   animateCounters();
 });
-
-// ====================================
-// GERAR POSTER DOS VÍDEOS AUTOMATICAMENTE
-// ====================================
-function generateVideoPoster() {
-  const videos = document.querySelectorAll("video[poster]");
-
-  videos.forEach((video) => {
-    // Criar canvas para capturar frame
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-
-    // Quando o metadata do vídeo carregar
-    video.addEventListener("loadedmetadata", function () {
-      // Definir dimensões do canvas
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-
-      // Ir para o primeiro frame (0.5 segundos)
-      video.currentTime = 0.5;
-    });
-
-    // Quando chegar no tempo desejado
-    video.addEventListener(
-      "seeked",
-      function () {
-        // Capturar o frame atual
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-        // Converter para data URL
-        const posterUrl = canvas.toDataURL("image/jpeg", 0.85);
-
-        // Definir como poster
-        video.setAttribute("poster", posterUrl);
-
-        // Resetar vídeo
-        video.currentTime = 0;
-      },
-      { once: true }
-    );
-
-    // Carregar metadata do vídeo
-    video.load();
-  });
-}
 
 // ====================================
 // ANIMAÇÃO DE CONTADORES
