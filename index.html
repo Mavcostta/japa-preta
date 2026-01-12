@@ -10,7 +10,7 @@
     <!-- Title & Description -->
     <title>Micropigmentação Guarulhos | Japa Preta Academy - Design de Sobrancelhas SP</title>
     <meta name="description" content="Japa Preta Academy em Guarulhos-SP. Especialista em Design de Sobrancelhas e Micropigmentação com 22 anos de experiência. Atendimento no bairro Soberana. Agende seu horário!">
-    <meta name="keywords" content="micropigmentação guarulhos, design de sobrancelhas guarulhos, sobrancelha fio a fio guarulhos, micropigmentação soberana, Angela Costa sobrancelhas, estética guarulhos, micropigmentação sp, design de sobrancelhas sp, henna guarulhos, japa preta academy">
+    <meta name="keywords" content="micropigmentação guarulhos, design de sobrancelhas guarulhos, sobrancelha shadow guarulhos, micropigmentação soberana, Angela Costa sobrancelhas, estética guarulhos, micropigmentação sp, design de sobrancelhas sp, henna guarulhos, japa preta academy">
     
     <!-- Geo Location -->
     <meta name="geo.region" content="BR-SP">
@@ -33,7 +33,7 @@
     
     <!-- Links -->
     <link rel="canonical" href="https://japapretaacademy.com.br/">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/jpeg" href="images/logo.jpeg">
     
     <!-- Preload & Preconnect -->
     <link rel="preload" as="style" href="styles.css">
@@ -115,7 +115,7 @@
             "itemOffered": {
               "@type": "Service",
               "name": "Micropigmentação",
-              "description": "Micropigmentação fio a fio para sobrancelhas"
+              "description": "Micropigmentação shadow para sobrancelhas"
             }
           },
           {
@@ -148,6 +148,11 @@
             <div class="nav-brand">
                 <h1>Japa Preta <span class="gold">Academy</span></h1>
             </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#sobre" class="nav-link">Sobre</a></li>
@@ -158,9 +163,6 @@
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
-            <div class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </div>
         </nav>
     </header>
 
@@ -169,13 +171,13 @@
         <div class="hero-overlay"></div>
         <div class="hero-content container">
             <div class="hero-text">
-                <span class="hero-subtitle" data-aos="fade-up">Especialista em Sobrancelhas</span>
+                <span class="hero-subtitle" data-aos="fade-up">Especialista em Sobrancelhas & Micropigmentação</span>
                 <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
-                    A Arte da Beleza <br>
-                    <span class="gold">Natural e Sofisticada</span>
+                    Beleza Sem Padrão,<br>
+                    <span class="gold">Impacto Sem Limites</span>
                 </h1>
                 <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
-                    Design & Micropigmentação | 22 anos realçando sua beleza natural
+                    Celebramos a autenticidade em cada detalhe, trazendo um impacto que vai além de qualquer limite. 22 anos transformando vidas através da beleza natural.
                 </p>
                 <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
                     <a href="https://wa.me/5511986625696" class="btn btn-primary" target="_blank">
@@ -188,9 +190,8 @@
             </div>
             <div class="hero-image" data-aos="fade-left" data-aos-delay="400">
                 <div class="hero-image-wrapper">
-                    <img src="images/angela (1).jpg" alt="Angela Costa - Japa Preta Academy" fetchpriority="high" decoding="async">
+                    <img src="images/head.jpg" alt="Logo Japa Preta Academy" fetchpriority="high" decoding="async">
                     <div class="hero-image-overlay"></div>
-                    <div class="hero-image-frame"></div>
                 </div>
             </div>
         </div>
@@ -365,7 +366,7 @@
                     </div>
                     <div class="timeline-content">
                         <h3>Micropigmentação & Especialização</h3>
-                        <p>Domínio das técnicas de micropigmentação fio a fio, cílios e outras especializações que transformaram completamente meu trabalho e resultados.</p>
+                        <p>Domínio das técnicas de micropigmentação shadow, cílios e outras especializações que transformaram completamente meu trabalho e resultados.</p>
                     </div>
                 </div>
                 <div class="timeline-item" data-aos="fade-right">
@@ -421,12 +422,11 @@
                         <i class="fas fa-paint-brush"></i>
                     </div>
                     <h3>Micropigmentação</h3>
-                    <p>Técnica avançada de micropigmentação fio a fio para sobrancelhas perfeitas e naturais todos os dias.</p>
+                    <p>Técnica avançada de micropigmentação shadow para sobrancelhas perfeitas e naturais todos os dias.</p>
                     <ul class="servico-features">
-                        <li><i class="fas fa-check"></i> Fio a fio realista</li>
+                        <li><i class="fas fa-check"></i> Shadow realista</li>
                         <li><i class="fas fa-check"></i> Pigmentos de alta qualidade</li>
                         <li><i class="fas fa-check"></i> Duração de 1 a 2 anos</li>
-                        <li><i class="fas fa-check"></i> Retoque incluso</li>
                     </ul>
                 </div>
 
@@ -496,129 +496,60 @@
                     Cada transformação é única e especial
                 </p>
             </div>
-            
-            <!-- Grid Moderno de Trabalhos -->
-            <div class="trabalhos-grid">
-                <div class="trabalho-item" data-aos="fade-up">
-                    <img src="images/trabalhos (1).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
+
+            <!-- Galeria de Trabalhos -->
+            <div class="portfolio-gallery" data-aos="fade-up">
+                <div class="gallery-item">
+                    <img src="images/designer1.jpg" alt="Design de Sobrancelhas">
+                    <div class="gallery-caption">
+                        <h3>Design de Sobrancelhas</h3>
+                        <p>Transformação completa</p>
                     </div>
                 </div>
-                
-                <div class="trabalho-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/trabalhos (2).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="images/micro.jpg" alt="Micropigmentação Shadow">
+                    <div class="gallery-caption">
+                        <h3>Micropigmentação Shadow</h3>
+                        <p>Resultado natural e duradouro</p>
                     </div>
                 </div>
-                
-                <div class="trabalho-item trabalho-tall" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/trabalhos (3).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="images/trabalhos (4).jpg" alt="Design Personalizado com Henna">
+                    <div class="gallery-caption">
+                        <h3>Design Personalizado com Henna</h3>
+                        <p>Beleza única para você</p>
                     </div>
                 </div>
-                
-                <div class="trabalho-item trabalho-video" data-aos="fade-up" data-aos-delay="100">
-                    <video src="images/trabalhos (1).mp4" poster="" muted loop playsinline preload="metadata"></video>
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-play-circle"></i>
+                <div class="gallery-item">
+                    <img src="images/designer2.jpg" alt="Designer Com Henna">
+                    <div class="gallery-caption">
+                        <h3>Designer Com Henna</h3>
+                        <p>Beleza natural</p>
                     </div>
                 </div>
-                
-                <div class="trabalho-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/trabalhos (4).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="images/cabelo.png" alt="Coloração Vibrante">
+                    <div class="gallery-caption">
+                        <h3>Coloração Vibrante</h3>
+                        <p>Cabelos radiantes e cheios de vida</p>
                     </div>
                 </div>
-                
-                <div class="trabalho-item" data-aos="fade-up">
-                    <img src="images/trabalhos (5).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item trabalho-wide" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/trabalhos (6).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/trabalhos (7).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item trabalho-video" data-aos="fade-up">
-                    <video src="images/trabalhos (2).mp4" poster="" muted loop playsinline preload="metadata"></video>
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/trabalhos (8).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item trabalho-tall" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/trabalhos (9).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item" data-aos="fade-up">
-                    <img src="images/trabalhos (10).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/trabalhos (11).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item trabalho-video" data-aos="fade-up" data-aos-delay="200">
-                    <video src="images/trabalhos (3).mp4" poster="" muted loop playsinline preload="metadata"></video>
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item" data-aos="fade-up">
-                    <img src="images/trabalhos (12).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item trabalho-wide" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/trabalhos (13).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
-                
-                <div class="trabalho-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/trabalhos (14).jpg" alt="Trabalho Japa Preta Academy" loading="lazy" decoding="async">
-                    <div class="trabalho-overlay">
-                        <i class="fas fa-search-plus"></i>
+                <div class="gallery-item">
+                    <img src="images/micro2.jpg" alt="micropigmentação natural">
+                    <div class="gallery-caption">
+                        <h3>Micropigmentação Natural</h3>
+                        <p>Realce sutil e natural</p>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Botão Ver Mais Trabalhos -->
+            <div class="gallery-more-btn" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://www.instagram.com/japapretaacademy/" class="btn btn-outline" target="_blank">
+                    <i class="fab fa-instagram"></i> Ver Mais Trabalhos
+                </a>
+            </div>
+
             <!-- CTA Final da Galeria -->
             <div class="galeria-cta-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="cta-content">
@@ -670,7 +601,7 @@
                         <img src="images/45eg9x.jpg" alt="Micropigmentação" loading="lazy" decoding="async">
                         <div class="slide-caption">
                             <h4>Micropigmentação</h4>
-                            <p>Fio a fio natural</p>
+                            <p>Shadow natural</p>
                         </div>
                     </div>
                     
@@ -747,14 +678,14 @@
                     <div class="carousel-slide" data-category="micro">
                         <img src="images/kx5m40.jpg" alt="Micropigmentação" loading="lazy" decoding="async">
                         <div class="slide-caption">
-                            <h4>Fio a Fio</h4>
+                            <h4>Shadow</h4>
                             <p>Ultra realista</p>
                         </div>
                     </div>
                     
                     <!-- Vídeo 3 -->
                     <div class="carousel-slide carousel-video-slide" data-category="sobrancelhas">
-                        <video src="images/cbaooo.mp4" poster="images/5ludqm.jpg" muted loop playsinline preload="none"></video>
+                        <video src="images/19l74f.mp4" poster="images/5ludqm.jpg" muted loop playsinline preload="none"></video>
                         <div class="video-play-overlay">
                             <i class="fas fa-play-circle"></i>
                         </div>
@@ -891,7 +822,7 @@
                     <img src="images/1ppuyg.jpg" alt="Micropigmentação" loading="lazy" decoding="async">
                     <div class="galeria-overlay">
                         <h4>Micropigmentação</h4>
-                        <p>Fio a fio natural</p>
+                        <p>Shadow natural</p>
                         <button class="btn-view"><i class="fas fa-search-plus"></i></button>
                     </div>
                 </div>
@@ -972,14 +903,14 @@
                     <img src="images/b6j92y.jpg" alt="Micropigmentação" loading="lazy" decoding="async">
                     <div class="galeria-overlay">
                         <h4>Micropigmentação</h4>
-                        <p>Fio a fio realista</p>
+                        <p>Shadow realista</p>
                         <button class="btn-view"><i class="fas fa-search-plus"></i></button>
                     </div>
                 </div>
                 
                 <!-- Vídeo 3 -->
                 <div class="galeria-item galeria-video" data-category="micro" data-aos="zoom-in" data-aos-delay="200">
-                    <video src="images/cbaooo.mp4" muted loop playsinline></video>
+                    <video src="images/qrmitn.mp4" muted loop playsinline></video>
                     <div class="video-play-btn"><i class="fas fa-play"></i></div>
                     <div class="galeria-overlay">
                         <h4>Transformação</h4>
@@ -1110,11 +1041,6 @@
                     </div>
                 </div>
             </div>
-            <div class="galeria-cta" data-aos="fade-up">
-                <p>Veja muito mais no nosso Instagram</p>
-                <a href="https://www.instagram.com/japapretaacademy/" class="btn btn-primary" target="_blank">
-                    <i class="fab fa-instagram"></i> Ver mais trabalhos
-                </a>
             </div>
         </div>
     </section>
@@ -1258,61 +1184,6 @@
                     </div>
                 </div>
 
-                <!-- Formulário Moderno -->
-                <div class="contato-form-container" data-aos="fade-up" data-aos-delay="400">
-                    <div class="form-header">
-                        <div class="form-icon">
-                            <i class="fas fa-paper-plane"></i>
-                        </div>
-                        <h3>Envie sua Mensagem</h3>
-                        <p>Preencha o formulário e entraremos em contato</p>
-                    </div>
-
-                    <form class="modern-form" id="contactForm">
-                        <div class="form-row">
-                            <div class="form-field">
-                                <i class="fas fa-user"></i>
-                                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-field">
-                                <i class="fas fa-phone"></i>
-                                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-field">
-                                <i class="fas fa-concierge-bell"></i>
-                                <select id="servico" name="servico" required>
-                                    <option value="">Selecione o serviço desejado</option>
-                                    <option value="design">Design de Sobrancelhas</option>
-                                    <option value="micro">Micropigmentação</option>
-                                    <option value="henna">Henna</option>
-                                    <option value="cabelo">Cabeleireira</option>
-                                    <option value="curso">Cursos & Eventos</option>
-                                    <option value="outro">Outro Serviço</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-field form-textarea">
-                                <i class="fas fa-comment-dots"></i>
-                                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos mais sobre o que você precisa..." required></textarea>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn-modern">
-                            <span class="btn-text">
-                                <i class="fab fa-whatsapp"></i>
-                                Enviar via WhatsApp
-                            </span>
-                            <span class="btn-shimmer"></span>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -1339,7 +1210,7 @@
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p>O desconforto é mínimo! Utilizamos anestésico tópico antes e durante o procedimento, garantindo seu conforto. A maioria das clientes relata apenas uma leve sensação de arranhão. Nosso compromisso é que você tenha uma experiência tranquila e agradável.</p>
+                        <p>O desconforto é mínimo! A maioria das clientes relata apenas uma leve sensação de arranhão. Nosso compromisso é que você tenha uma experiência tranquila e agradável.</p>
                     </div>
                 </div>
 
@@ -1357,66 +1228,6 @@
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="faq-question">
-                        <h3>Qual é o tempo de recuperação?</h3>
-                        <div class="faq-icon">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>O período de cicatrização completo é de aproximadamente 30 dias. Nos primeiros 7 dias você precisará seguir cuidados específicos como evitar água em excesso e não coçar. Após esse período inicial, as sobrancelhas já estarão com aparência natural.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="faq-question">
-                        <h3>Posso fazer se tenho alergia?</h3>
-                        <div class="faq-icon">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Trabalhamos com pigmentos hipoalergênicos de alta qualidade e certificados pela Anvisa. No entanto, se você tem histórico de alergias a metais ou tintas, recomendamos fazer um teste de sensibilidade 48h antes do procedimento para total segurança.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
-                    <div class="faq-question">
-                        <h3>Qual a diferença entre micropigmentação e tatuagem?</h3>
-                        <div class="faq-icon">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>A micropigmentação é feita em camadas mais superficiais da pele e utiliza pigmentos orgânicos que desbotam gradualmente, permitindo ajustes ao longo do tempo. Já a tatuagem é permanente, vai mais profundo e usa tintas sintéticas. Nossa técnica é específica para o rosto, garantindo resultados naturais.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
-                    <div class="faq-question">
-                        <h3>Como é feito o design das sobrancelhas?</h3>
-                        <div class="faq-icon">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Realizamos uma análise detalhada do seu rosto considerando formato, simetria facial, cor de pele e suas preferências pessoais. O design é feito à mão e aprovado por você antes de iniciar o procedimento. Nosso objetivo é realçar sua beleza natural respeitando suas características únicas.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
-                    <div class="faq-question">
-                        <h3>Grávidas podem fazer micropigmentação?</h3>
-                        <div class="faq-icon">
-                            <i class="fas fa-plus"></i>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Por questões de segurança e bem-estar, não recomendamos realizar micropigmentação durante a gravidez ou amamentação. Aguarde essa fase especial passar e teremos prazer em atendê-la com toda segurança e conforto!</p>
-                    </div>
-                </div>
-
-                <div class="faq-item" data-aos="fade-up" data-aos-delay="800">
-                    <div class="faq-question">
                         <h3>Quanto custa o procedimento?</h3>
                         <div class="faq-icon">
                             <i class="fas fa-plus"></i>
@@ -1428,7 +1239,7 @@
                 </div>
             </div>
 
-            <div class="faq-cta" data-aos="fade-up" data-aos-delay="900">
+            <div class="faq-cta" data-aos="fade-up" data-aos-delay="400">
                 <p>Não encontrou sua resposta?</p>
                 <a href="https://wa.me/5511986625696" class="btn btn-primary" target="_blank">
                     <i class="fab fa-whatsapp"></i> Fale Conosco
@@ -1441,61 +1252,8 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <h3>Japa Preta <span class="gold">Academy</span></h3>
-                    <p>
-                        Especialista em Sobrancelhas, Design & Micropigmentação. 
-                        22 anos de experiência elevando a autoestima e valorizando a beleza única de cada cliente.
-                    </p>
-                    <div class="footer-social">
-                        <a href="https://www.instagram.com/japapretaacademy/" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/5511986625696" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#jornada">Jornada</a></li>
-                        <li><a href="#servicos">Serviços</a></li>
-                        <li><a href="#galeria">Galeria</a></li>
-                        <li><a href="#depoimentos">Depoimentos</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>Contato</h4>
-                    <ul>
-                        <li>
-                            <i class="fab fa-whatsapp"></i>
-                            <a href="https://wa.me/5511986625696" target="_blank">Chamar no WhatsApp</a>
-                        </li>
-                        <li>
-                            <i class="fab fa-instagram"></i>
-                            <a href="https://www.instagram.com/japapretaacademy/" target="_blank">@japapretaacademy</a>
-                        </li>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Guarulhos-SP, Bairro Soberana</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>09:00 às 17:00</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Japa Preta Academy. Todos os direitos reservados.</p>
-                <p>Micropigmentação e Design de Sobrancelhas em Guarulhos-SP | Angela Costa</p>
+                <p>Japa Preta Academy<br>
+                Especialista em Sobrancelhas, Design & Micropigmentação. 22 anos de experiência elevando a autoestima e valorizando a beleza única de cada cliente.</p>
             </div>
         </div>
     </footer>
