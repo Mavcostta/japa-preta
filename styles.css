@@ -3445,30 +3445,13 @@ h6 {
 @keyframes lightboxZoom {
   from {
     transform: scale(0.8);
-    opacity: 0;
+  .hero-image {
+    max-width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    padding: 10px;
+    order: -1;
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-.lightbox-content img,
-.lightbox-content video {
-  max-width: 100%;
-  max-height: 90vh;
-  display: block;
-  border-radius: 8px;
-  box-shadow: 0 10px 50px rgba(212, 175, 55, 0.3);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -50px;
-  right: 0;
-  background: transparent;
-  border: none;
-  color: var(--text-light);
   font-size: 3rem;
   cursor: pointer;
   transition: var(--transition);
